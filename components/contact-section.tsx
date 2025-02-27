@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react"
 import { Mail, MapPin, Phone, Linkedin, Github, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -118,55 +120,3 @@ export function ContactSection() {
                   <Input
                     id="name"
                     name="name"
-                    placeholder="Your name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Your email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    placeholder="Subject"
-                    required
-                    value={formData.subject}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Your message"
-                    required
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleChange(e as React.ChangeEvent<HTMLInputElement>)}
-                  />
-                </div>
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </section>
-  )
-}
