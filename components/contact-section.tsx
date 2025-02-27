@@ -10,41 +10,26 @@ import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  })
-  
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  
-  const handleChange = (e) => {
-  const { name, value } = e.target
-  setFormData(prev => ({ ...prev, [name]: value }))
-}
 
+  const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     // Simulate form submission
     setTimeout(() => {
       toast.success("Message sent successfully! I'll get back to you soon.")
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-      })
+      setFormData({ name: "", email: "", subject: "", message: "" })
       setIsSubmitting(false)
     }, 1500)
   }
-  
+
   return (
     <section id="contact" className="py-16">
       <div className="container px-4 md:px-6">
@@ -56,7 +41,6 @@ export function ContactSection() {
             </p>
           </div>
         </div>
-        
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:gap-12">
           <div>
             <div className="space-y-4">
@@ -64,7 +48,6 @@ export function ContactSection() {
               <p className="text-muted-foreground">
                 Feel free to reach out through any of the following channels. I'm always excited to discuss new projects and opportunities.
               </p>
-              
               <div className="space-y-4 pt-4">
                 <Card>
                   <CardContent className="flex items-center gap-4 p-4">
@@ -75,7 +58,6 @@ export function ContactSection() {
                     </div>
                   </CardContent>
                 </Card>
-                
                 <Card>
                   <CardContent className="flex items-center gap-4 p-4">
                     <Phone className="h-5 w-5 text-primary" />
@@ -85,7 +67,6 @@ export function ContactSection() {
                     </div>
                   </CardContent>
                 </Card>
-                
                 <Card>
                   <CardContent className="flex items-center gap-4 p-4">
                     <MapPin className="h-5 w-5 text-primary" />
@@ -95,7 +76,6 @@ export function ContactSection() {
                     </div>
                   </CardContent>
                 </Card>
-
                 <Card>
                   <CardContent className="flex items-center gap-4 p-4">
                     <Globe className="h-5 w-5 text-primary" />
@@ -105,7 +85,6 @@ export function ContactSection() {
                     </div>
                   </CardContent>
                 </Card>
-
                 <Card>
                   <CardContent className="flex items-center gap-4 p-4">
                     <Linkedin className="h-5 w-5 text-primary" />
@@ -115,7 +94,6 @@ export function ContactSection() {
                     </div>
                   </CardContent>
                 </Card>
-
                 <Card>
                   <CardContent className="flex items-center gap-4 p-4">
                     <Github className="h-5 w-5 text-primary" />
@@ -128,7 +106,6 @@ export function ContactSection() {
               </div>
             </div>
           </div>
-          
           <Card>
             <CardHeader>
               <CardTitle>Send Me a Message</CardTitle>
@@ -140,46 +117,46 @@ export function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name</Label>
-                  <Input 
-                    id="name" 
-                    name="name" 
-                    placeholder="Your name" 
-                    required 
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
                     value={formData.name}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    placeholder="Your email" 
-                    required 
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Your email"
+                    required
                     value={formData.email}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject</Label>
-                  <Input 
-                    id="subject" 
-                    name="subject" 
-                    placeholder="Subject" 
-                    required 
+                  <Input
+                    id="subject"
+                    name="subject"
+                    placeholder="Subject"
+                    required
                     value={formData.subject}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
-                  <Textarea 
-                    id="message" 
-                    name="message" 
-                    placeholder="Your message" 
-                    required 
-                    rows={4} 
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Your message"
+                    required
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                   />
