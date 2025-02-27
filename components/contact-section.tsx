@@ -1,6 +1,4 @@
-"use client"
-
-import { useState } from "react"
+import React, { useState } from "react"
 import { Mail, MapPin, Phone, Linkedin, Github, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,12 +11,12 @@ export function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
@@ -158,7 +156,7 @@ export function ContactSection() {
                     required
                     rows={4}
                     value={formData.message}
-                    onChange={handleChange}
+                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleChange(e as React.ChangeEvent<HTMLInputElement>)}
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
